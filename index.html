@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithms Course</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #161616;
+            --accent: #6366f1;
+            --text-primary: #f3f4f6;
+            --text-secondary: #9ca3af;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+        }
+
+        header {
+            background-color: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 1rem;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .section {
+            background-color: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #2a2a2a;
+        }
+
+        h2 {
+            color: var(--accent);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin: 1.5rem 0 1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background-color: var(--bg-primary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #2a2a2a;
+        }
+
+        .card h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .card ol {
+            list-style-position: inside;
+            color: var(--text-secondary);
+        }
+
+        .card li {
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        strong {
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+            border-top: 1px solid #2a2a2a;
+        }
+        .team-btn {
+            background-color: var(--accent);
+            color: var(--text-primary);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .team-btn:hover {
+            background-color: #4f46e5;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">Algorithm Course</div>
+            <div class="nav-links">
+                <a href="#overview">Overview</a>
+                <a href="#foundations">Foundations</a>
+                <a href="#structures">Data Structures</a>
+                <a href="#algorithms">Algorithms</a>
+                <a href="#applications">Applications</a>
+            </div>
+            <button class="team-btn" onclick="location.href='#team'">Team Intro</button>
+        </nav>
+    </header>\
+
+    <main>
+        <section id="overview" class="section">
+            <h2>Course Overview</h2>
+            <p>Our course, Design and Analysis of Algorithms, introduces us to the fundamentals of algorithms and data structures, focusing on their design, analysis, and application. We start with core concepts like time and space complexities, recursion, and backtracking. Next, we delve into tools like hashing and Union-Find, along with advanced data structures such as AVL Trees, Segment Trees, and Red-Black Trees.</p>
+        </section>
+
+        <section id="foundations" class="section">
+            <h2>Mathematical Foundations</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Math Basics</h3>
+                    <p>Foundation concepts including:</p>
+                    <ol>
+                        <li>Time and Space Efficiency</li>
+                        <li>Recurrence Relations</li>
+                        <li>Tower of Brahma</li>
+                        <li>N-Queens Problem</li>
+                    </ol>
+                </div>
+                <div class="card">
+                    <h3>Growth Analysis</h3>
+                    <p>Understanding algorithm efficiency through:</p>
+                    <ol>
+                        <li>Orders of Growth</li>
+                        <li>Asymptotic Notation</li>
+                        <li>Best/Worst/Average Cases</li>
+                        <li>Space Complexity</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <section id="structures" class="section">
+            <h2>Data Structures</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Linear Structures</h3>
+                    <ol>
+                        <li>Arrays and Linked Lists</li>
+                        <li>Stacks and Queues</li>
+                        <li>Hash Tables</li>
+                    </ol>
+                </div>
+                <div class="card">
+                    <h3>Tree Structures</h3>
+                    <ol>
+                        <li>Binary Search Trees</li>
+                        <li>AVL & Red-Black Trees</li>
+                        <li>2-3 Trees</li>
+                        <li>Tries & Skip Lists</li>
+                    </ol>
+                </div>
+                <div class="card">
+                    <h3>Advanced Structures</h3>
+                    <ol>
+                        <li>Heaps & Priority Queues</li>
+                        <li>Fenwick Trees (BIT)</li>
+                        <li>Segment Trees</li>
+                        <li>Sparse Tables</li>
+                    </ol>
+                </div>
+                <div class="card">
+                    <h3>Graph Structures</h3>
+                    <ol>
+                        <li>Adjacency Matrices</li>
+                        <li>Adjacency Lists</li>
+                        <li>Edge Lists</li>
+                        <li>Weighted Graphs</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <section id="algorithms" class="section">
+            <h2>Core Algorithms</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Sorting Algorithms</h3>
+                    <ol>
+                        <li>Bubble & Selection Sort</li>
+                        <li>Insertion Sort</li>
+                        <li>Merge Sort</li>
+                        <li>Quick Sort</li>
+                        <li>Heap Sort</li>
+                    </ol>
+                </div>
+                <div class="card">
+                    <h3>Searching Algorithms</h3>
+                    <ol>
+                        <li>Linear & Binary Search</li>
+                        <li>KMP Algorithm</li>
+                        <li>Rabin-Karp Algorithm</li>
+                        <li>Boyer-Moore Algorithm</li>
+                    </ol>
+                </div>
+                <div class="card">
+                    <h3>Graph Algorithms</h3>
+                    <ol>
+                        <li>Depth-First Search</li>
+                        <li>Breadth-First Search</li>
+                        <li>Dijkstra's Algorithm</li>
+                        <li>Bellman-Ford Algorithm</li>
+                        <li>Floyd-Warshall Algorithm</li>
+                    </ol>
+                </div>
+                <div class="card">
+                    <h3>Optimization Algorithms</h3>
+                    <ol>
+                        <li>Union-Find</li>
+                        <li>Travelling Salesperson</li>
+                        <li>Knapsack Problem</li>
+                        <li>Huffman Coding</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <section id="applications" class="section">
+            <h2>Real-world Applications</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Smart Cities</h3>
+                    <p>Optimization of road networks, traffic management, and resource distribution using graph algorithms and advanced data structures.</p>
+                </div>
+                <div class="card">
+                    <h3>System Design</h3>
+                    <p>File systems using tree structures, compiler design with syntax trees, and database optimization with efficient sorting and searching.</p>
+                </div>
+                <div class="card">
+                    <h3>Cybersecurity</h3>
+                    <p>Implementation of hashing for secure password storage and efficient data retrieval in security systems.</p>
+                </div>
+                <div class="card">
+                    <h3>Real-Time Systems</h3>
+                    <p>Application in competitive programming, automated trading systems, and real-time decision making in logistics.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Algorithm Course </p>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll reveal effect to sections
+        const sections = document.querySelectorAll('.section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            observer.observe(section);
+        });
+    </script>
+</body>
+
+</html>

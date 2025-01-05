@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Directory</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #161616;
+            --accent: #6366f1;
+            --text-primary: #f3f4f6;
+            --text-secondary: #9ca3af;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #2a2a2a;
+            padding: 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .back-link:hover {
+            color: var(--accent);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .section-header h1 {
+            color: var(--accent);
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .team-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+        .team-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .member-name {
+            color: var(--text-primary);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .info-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .info-label {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .info-value {
+            color: var(--text-primary);
+            font-size: 0.875rem;
+        }
+
+        .card-footer {
+            padding: 1rem 1.5rem;
+            background-color: rgba(10, 10, 10, 0.3);
+            border-top: 1px solid #2a2a2a;
+        }
+
+        .view-profile {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .team-card:hover .view-profile {
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="../index.html" class="back-link">← Back to Home</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="section-header">
+            <h1>Team Directory</h1>
+            <p>Meet our team members</p>
+        </div>
+
+        <div class="team-grid">
+        </div>
+    </main>
+
+    <script>
+        const teamMembers = [
+            {
+                name: "Shivanand H",
+                rollNo: "260",
+                usn: "01FE23BCS268",
+                href: "https://shivanand-hulikatti.github.io/daa-portfolio/businessCase.html"
+            },
+            {
+                name: "Shivakumar K",
+                rollNo: "236",
+                usn: "01FE23BCS158",
+                href: "#"
+            },
+            {
+                name: "Rahul A",
+                rollNo: "237",
+                usn: "01FE23BCS159",
+                href: "#"
+            },
+            {
+                name: "Shivaling P",
+                rollNo: "212",
+                usn: "01FE23BCS059",
+                href: "#"
+            }
+        ];
+
+        const teamGrid = document.querySelector('.team-grid');
+
+        teamMembers.forEach(member => {
+            const card = document.createElement('a');
+            card.href = member.href;
+            card.className = 'team-card';
+            
+            card.innerHTML = `
+                <div class="card-content">
+                    <h2 class="member-name">${member.name}</h2>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="info-label">Roll No</span>
+                            <span class="info-value">${member.rollNo}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">USN</span>
+                            <span class="info-value">${member.usn}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="view-profile">
+                        <span>View Business Cases</span>
+                        <span>→</span>
+                    </div>
+                </div>
+            `;
+            
+            teamGrid.appendChild(card);
+        });
+    </script>
+</body>
+</html>

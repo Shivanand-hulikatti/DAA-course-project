@@ -7,18 +7,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #0a0a0a;
-            --bg-secondary: #161616;
-            --accent: #6366f1;
-            --text-primary: #f3f4f6;
-            --text-secondary: #9ca3af;
+            --bg-primary: #000000;
+            --bg-secondary: #111111;
+            --accent: #0070f3;
+            --text-primary: #ffffff;
+            --text-secondary: #888888;
+            --button-hover: #0060df;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            transition: all 0.3s ease;
         }
 
         body {
@@ -30,10 +30,10 @@
         }
 
         header {
-            background-color: rgba(10, 10, 10, 0.8);
+            background-color: rgba(0, 0, 0, 0.8);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid #2a2a2a;
-            padding: 1.5rem;
+            border-bottom: 1px solid #333;
+            padding: 1rem;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -46,55 +46,61 @@
             justify-content: space-between;
             align-items: center;
         }
-
         .back-link {
-            color: var(--text-secondary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.875rem;
-        }
+        color: var(--text-secondary);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.875rem;
+        transition: color 0.3s ease, background-color 0.3s ease;
+        padding: 0.5rem 1rem;
+        border: 1px solid var(--text-secondary);
+        border-radius: 6px;
+    }
 
-        .back-link:hover {
-            color: var(--accent);
-        }
+    .back-link:hover {
+        color: var(--accent);
+        background-color: var(--bg-secondary);
+        border-color: var(--accent);
+    }
 
         main {
             max-width: 1200px;
             margin: 2rem auto;
-            padding: 0 1.5rem;
+            padding: 0 1rem;
         }
 
         .section-header {
             margin-bottom: 2rem;
             padding-bottom: 1.5rem;
-            border-bottom: 1px solid #2a2a2a;
+            border-bottom: 1px solid #333;
         }
 
         .section-header h1 {
-            color: var(--accent);
-            font-size: 2rem;
+            color: var(--text-primary);
+            font-size: 2.5rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
         }
 
         .section-header p {
             color: var(--text-secondary);
+            font-size: 1.125rem;
         }
 
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
         }
 
         .team-card {
             background-color: var(--bg-secondary);
-            border: 1px solid #2a2a2a;
+            border: 1px solid #333;
             border-radius: 12px;
             overflow: hidden;
-            text-decoration: none;
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
         .team-card:hover {
@@ -108,14 +114,15 @@
 
         .member-name {
             color: var(--text-primary);
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 1rem;
         }
 
         .info-grid {
             display: grid;
-            gap: 1rem;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
         }
 
         .info-item {
@@ -132,24 +139,30 @@
         .info-value {
             color: var(--text-primary);
             font-size: 0.875rem;
+            font-weight: 500;
         }
 
-        .card-footer {
-            padding: 1rem 1.5rem;
-            background-color: rgba(10, 10, 10, 0.3);
-            border-top: 1px solid #2a2a2a;
+        .card-actions {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
         }
 
-        .view-profile {
-            color: var(--text-secondary);
+        .action-button {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            border: 1px solid #333;
+            border-radius: 6px;
+            padding: 0.5rem;
             font-size: 0.875rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
         }
 
-        .team-card:hover .view-profile {
-            color: var(--accent);
+        .action-button:hover {
+            background-color: var(--accent);
+            border-color: var(--accent);
         }
 
         @media (max-width: 768px) {
@@ -169,10 +182,11 @@
     <main>
         <div class="section-header">
             <h1>Team Directory</h1>
-            <p>Meet our team members</p>
+            <p>Meet our squad</p>
         </div>
 
         <div class="team-grid">
+            <!-- Team members will be dynamically inserted here -->
         </div>
     </main>
 
@@ -182,33 +196,40 @@
                 name: "Shivanand H",
                 rollNo: "260",
                 usn: "01FE23BCS268",
-                href: "https://shivanand-hulikatti.github.io/daa-portfolio/businessCase.html"
+                portfolio: "https://shivanand-hulikatti.github.io/daa-portfolio/",
+                businessCase: "https://shivanand-hulikatti.github.io/daa-portfolio/businessCase.html",
+                reflections: "https://shivanand-hulikatti.github.io/daa-portfolio/reflection.html"
             },
             {
                 name: "Shivakumar K",
                 rollNo: "236",
                 usn: "01FE23BCS158",
-                href: "https://shivakumar-kenjadimath.github.io/daa-portfolio/businessCase.html"
+                portfolio: "https://shivakumar-kenjadimath.github.io/daa-portfolio/",
+                businessCase: "https://shivakumar-kenjadimath.github.io/daa-portfolio/business-case.html",
+                reflections: "https://shivakumar-kenjadimath.github.io/daa-portfolio/reflection.html"
             },
             {
                 name: "Rahul A",
                 rollNo: "237",
                 usn: "01FE23BCS159",
-                href: "https://rahulavarolli.github.io/daa-portfolio/Business%20Case.html"
+                portfolio: "https://rahulavarolli.github.io/daa-portfolio/",
+                businessCase: "https://rahulavarolli.github.io/daa-portfolio/Business%20Case.html",
+                reflections: "https://rahulavarolli.github.io/daa-portfolio/reflection.html"
             },
             {
                 name: "Shivaling P",
                 rollNo: "212",
                 usn: "01FE23BCS059",
-                href: "#"
+                portfolio: "#",
+                businessCase: "#",
+                reflections: "#"
             }
         ];
 
         const teamGrid = document.querySelector('.team-grid');
 
         teamMembers.forEach(member => {
-            const card = document.createElement('a');
-            card.href = member.href;
+            const card = document.createElement('div');
             card.className = 'team-card';
             
             card.innerHTML = `
@@ -224,11 +245,10 @@
                             <span class="info-value">${member.usn}</span>
                         </div>
                     </div>
-                </div>
-                <div class="card-footer">
-                    <div class="view-profile">
-                        <span>View Business Cases</span>
-                        <span>→</span>
+                    <div class="card-actions">
+                        <a href="${member.portfolio}" class="action-button">View Portfolio</a>
+                        <a href="${member.businessCase}" class="action-button">Business Case</a>
+                        <a href="${member.reflections}" class="action-button">Reflections</a>
                     </div>
                 </div>
             `;

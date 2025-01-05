@@ -286,7 +286,33 @@
             <p>A visionary 1,500 sq.km sustainable smart city connecting Rozhok, Yasnaya, Novorepnoye, Lipovka, Georgopol, Gatka, Primorsk, and Mylta. Built on the Karelian Highlands and Erangel Plains.</p>
         </div>
     </section>
+    <div class="scroll-down">
+        <i class="fas fa-chevron-down"></i>
+    </div>
 
+    <style>
+        .scroll-down {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            color: #fff;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+    </style>
     <section id="overview" class="section">
         <h2 class="section-title">City Overview</h2>
         <div class="grid">
